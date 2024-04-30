@@ -13,14 +13,14 @@ function App() {
 
 const [mode,NewMode]= useState("light")
 const [text,NewText]= useState("Switch To Dark")
-const [alert,NewAlert]=useState(null)
+const [alert,setAlert]=useState(null)
 
 let modestyle={
   backgroundColor: mode==="light"? "white":"blue",
 }
 
 const showAlert = (message, type)=>{
-         NewAlert({
+         setAlert({
           msg: message,
           type: type
          })
@@ -32,7 +32,7 @@ Inside the setTimeout callback, we clear the timeout by calling clearTimeout(tim
 By implementing this change, you should be able to prevent the "Failed to execute 'removeChild' on 'Node'" error from occurring in your code.
          */
        const timeoutId =  setTimeout(()=>{
-             NewAlert(null);
+             setAlert(null);
              clearTimeout(timeoutId);
          },3000)
 }
